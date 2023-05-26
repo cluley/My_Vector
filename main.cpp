@@ -24,10 +24,10 @@ int main(int argc, char** argv) {
 
 	cout << "size: " << vec1.size() << '\n' << "capacity: " << vec1.capacity() << endl;
 
-	vec1.push_back(69);
-	vec1.push_back(69);
-	vec1.push_back(69);
-	vec1.push_back(69);
+	vec1.push_back(1729);
+	vec1.push_back(1729);
+	vec1.push_back(1729);
+	vec1.push_back(1729);
 
 	for (unsigned i = 0; i < vec1.size(); ++i) {
 		cout << vec1.at(i) << ' ';

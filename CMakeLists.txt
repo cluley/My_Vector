@@ -1,11 +1,8 @@
-cmake_minimum_required(VERSION 3.22.0)
+cmake_minimum_required(VERSION 3.20)
 
-set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+project(MyVector)
+add_executable(MyVector main.cpp vector.h)
 
-project(My_Vector)
-add_executable(My_Vector main.cpp, vector.h)
-
-add_executable(My_Vector_test test.cpp, vector.h)
-find_package(Catch2 CONFIG REQUIRED)
-target_link_libraries(My_Vector PRIVATE Catch2::Catch2 Catch2::Catch2WithMain)
+add_subdirectory(Catch2 Catch2-build)
+add_executable(MyVectorTests test.cpp vector.h)
+target_link_libraries(MyVectorTests PRIVATE Catch2::Catch2)

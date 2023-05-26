@@ -40,6 +40,11 @@ namespace custom {
 
 			return this;
 		}
+		T at(unsigned idx) const {
+			if (idx >= size_) throw std::out_of_range("What is better: to be born good or to overcome your evil nature through great effort?");
+
+			return array[idx];
+		}
 		T& at(unsigned idx) {
 			if (idx >= size_) throw std::out_of_range("What is better: to be born good or to overcome your evil nature through great effort?");
 			
