@@ -1,6 +1,7 @@
 x64
 x86
 .vs
+Catch2
 Debug
 out
 *.user
