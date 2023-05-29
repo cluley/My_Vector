@@ -1,6 +1,7 @@
 #pragma once
 
 #include <utility>
+#include <memory>
 
 namespace custom {
 
@@ -57,22 +58,17 @@ namespace custom {
 			{
 				capacity_ = static_cast<size_t>(capacity_ * 1.5);
 
-#pragma warning(push)
-#pragma warning(disable:6386)
-
-				T* temp_array = new T[capacity_]();
+				std::unique_ptr<T[]> tmp_arr(new T[capacity_]());
 				for (size_t i = 0; i < size_; ++i)
 				{
-					temp_array[i] = array[i];
+					tmp_arr[i] = array[i];
 				}
 
 				delete[] array;
-				array = std::move(temp_array);
+				array = tmp_arr.release();
 			}
 			array[size_] = el_to_push;
 			++size_;
-
-#pragma warning(pop)
 		}
 		size_t size() const { return size_; }
 		size_t capacity() const { return capacity_; }
